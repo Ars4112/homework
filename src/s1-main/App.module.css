@@ -11,12 +11,12 @@
 	gap: 73px;
 }
 
-.hw > :first-child {
+/* .hw > :first-child {
 	display: flex;
 	flex-direction: column;
-	gap: 47px;
+	
 	width: 100%;
-}
+} */
 
 .hwTitle {
 	font-family: "Montserrat", sans-serif;
