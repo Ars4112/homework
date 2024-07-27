@@ -11,13 +11,6 @@
 	gap: 73px;
 }
 
-/* .hw > :first-child {
-	display: flex;
-	flex-direction: column;
-	
-	width: 100%;
-} */
-
 .hwTitle {
 	font-family: "Montserrat", sans-serif;
 	font-weight: 600;
