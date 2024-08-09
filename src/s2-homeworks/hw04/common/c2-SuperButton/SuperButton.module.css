@@ -1,8 +1,8 @@
 .button {
 	border-radius: 3px;
 	padding: 5px 24px;
-	width: 132px;
-	height: 30px;
+	/* width: 132px;
+	height: 30px; */
 	font-family: var(--font-family);
 	font-weight: 600;
 	font-size: 14px;
@@ -22,7 +22,7 @@
 	background-color: transparent;
 	border: 1px solid #06c;
 	color: #06c;
-    width: 176px;
+    /* width: 176px; */
     
 }
 
@@ -36,32 +36,32 @@
 
 .default:hover {
     background: #0080ff;
-    width: 167px;
+    /* width: 167px; */
 }
 
 .red:hover {
     background: #ff1a47;
-    width: 167px;
+    /* width: 167px; */
 }
 
 .secondary:hover {
-    width: 167px;
+    /* width: 167px; */
     background: #e5f0fa;
 }
 
 .default:active {
     background: #0059b2;
-    width: 149px;
+    /* width: 149px; */
 }
 
 .secondary:active {
     background: #c9e5ff;
-    width: 149px;
+    /* width: 149px; */
 }
 
 .red:active {
     background: #b21232;
-    width: 149px;
+    /* width: 149px; */
 }
 
 .button:disabled {
