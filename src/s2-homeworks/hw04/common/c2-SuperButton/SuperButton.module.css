@@ -15,7 +15,7 @@
 .disabled {
 	background: #004d99;
 	opacity: 0.5;
-    color: inherit;
+    /* color: inherit; */
 }
 
 .secondary {
