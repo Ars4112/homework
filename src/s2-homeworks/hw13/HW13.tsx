@@ -34,17 +34,13 @@ const HW13 = () => {
 		axios
 			.post(url, { success: x })
 			.then((res) => {
-				console.log(res);
-
 				setCode(`Код ${res.status}!`);
 				setImage(success200);
 				setText(`${res.data.errorText}`);
-                setInfo(` ${res.data.info}`);
+                setInfo(`${res.data.info}`);
 				// дописать
 			})
 			.catch((e) => {
-				// console.log(e);
-
 				setCode(e.response.status ? `Код ${e.response.status}!` : "Error!");
 				setImage(
 					e.response.status === 500
@@ -59,11 +55,10 @@ const HW13 = () => {
 						: `${e.message} ${e.name}`
 				);
                 setInfo(e.response.status
-						? ` ${e.response.data.info}` : "");
+						? `${e.response.data.info}` : "");
 
 				// дописать
 			})
-			// .finally(() => setInfo(""));
 	};
 
 	const disabledButton = info === "...loading";
