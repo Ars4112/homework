@@ -34,43 +34,36 @@ const HW13 = () => {
 		axios
 			.post(url, { success: x })
 			.then((res) => {
-				setCode("Код 200!");
+				console.log(res);
+
+				setCode(`Код ${res.status}!`);
 				setImage(success200);
-				setText(`...всё ок)
-                    код 200 - обычно означает что скорее всего всё ок)`);
+				setText(`${res.data.errorText} ${res.data.info}`);
 				// дописать
 			})
 			.catch((e) => {
-                console.log(e);
-                
-				if (e.response.status === 500) {
-					setCode("Код 500!");
-					setImage(error500);
-					setText(
-						"эмитация ошибки на сервере ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)"
-					);
-				} 
-                if (e.response.status === 400){
-					setCode("Код 400!");
-					setImage(error400);
-					setText(
-						"Ты не отправил success в body вообще! ошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!"
-					);
-				}
-                if (e.response.status === 0){
-					setCode("Error!");
-					setImage(errorUnknown);
-					setText(
-						`${e.message} ${e.name}`
-					);
-				}
+				console.log(e);
+
+				setCode(e.response.status ? `Код ${e.response.status}!` : "Error!");
+				setImage(
+					e.response.status === 500
+						? error500
+						: e.response.status === 400
+						? error400
+						: errorUnknown
+				);
+				setText(
+					e.response.status
+						? `${e.response.data.errorText} ${e.response.data.info}`
+						: `${e.message} ${e.name}`
+				);
 
 				// дописать
 			})
 			.finally(() => setInfo(""));
 	};
 
-    const disabledButton = Boolean(info)
+	const disabledButton = Boolean(info);
 
 	return (
 		<div id={"hw13"}>
@@ -82,7 +75,7 @@ const HW13 = () => {
 						id={"hw13-send-true"}
 						onClick={send(true)}
 						xType={"secondary"}
-                        disabled={disabledButton}
+						disabled={disabledButton}
 						// дописать
 					>
 						Send true
@@ -91,7 +84,7 @@ const HW13 = () => {
 						id={"hw13-send-false"}
 						onClick={send(false)}
 						xType={"secondary"}
-                        disabled={disabledButton}
+						disabled={disabledButton}
 						// дописать
 					>
 						Send false
@@ -100,7 +93,7 @@ const HW13 = () => {
 						id={"hw13-send-undefined"}
 						onClick={send(undefined)}
 						xType={"secondary"}
-                        disabled={disabledButton}
+						disabled={disabledButton}
 						// дописать
 					>
 						Send undefined
@@ -109,7 +102,7 @@ const HW13 = () => {
 						id={"hw13-send-null"}
 						onClick={send(null)} // имитация запроса на не корректный адрес
 						xType={"secondary"}
-                        disabled={disabledButton}
+						disabled={disabledButton}
 						// дописать
 					>
 						Send null
