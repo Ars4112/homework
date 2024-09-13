@@ -38,11 +38,12 @@ const HW13 = () => {
 
 				setCode(`Код ${res.status}!`);
 				setImage(success200);
-				setText(`${res.data.errorText} ${res.data.info}`);
+				setText(`${res.data.errorText}`);
+                setInfo(` ${res.data.info}`);
 				// дописать
 			})
 			.catch((e) => {
-				console.log(e);
+				// console.log(e);
 
 				setCode(e.response.status ? `Код ${e.response.status}!` : "Error!");
 				setImage(
@@ -54,16 +55,18 @@ const HW13 = () => {
 				);
 				setText(
 					e.response.status
-						? `${e.response.data.errorText} ${e.response.data.info}`
+						? `${e.response.data.errorText}`
 						: `${e.message} ${e.name}`
 				);
+                setInfo(e.response.status
+						? ` ${e.response.data.info}` : "");
 
 				// дописать
 			})
-			.finally(() => setInfo(""));
+			// .finally(() => setInfo(""));
 	};
 
-	const disabledButton = Boolean(info);
+	const disabledButton = info === "...loading";
 
 	return (
 		<div id={"hw13"}>
