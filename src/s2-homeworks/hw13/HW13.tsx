@@ -41,6 +41,9 @@ const HW13 = () => {
 				// дописать
 			})
 			.catch((e) => {
+
+                console.log(e);
+                
 				setCode(e.response.status ? `Код ${e.response.status}!` : "Error!");
 				setImage(
 					e.response.status === 500
@@ -52,10 +55,10 @@ const HW13 = () => {
 				setText(
 					e.response.status
 						? `${e.response.data.errorText}`
-						: `${e.message} ${e.name}`
+						: `${e.message}`
 				);
                 setInfo(e.response.status
-						? `${e.response.data.info}` : "");
+						? `${e.response.data.info}` : `${e.name}`);
 
 				// дописать
 			})
