@@ -29,6 +29,8 @@ type ParamsType = {
 };
 
 const getTechs = (params: ParamsType) => {
+    console.log(params);
+    
 	return axios
 		.get<{ techs: TechType[]; totalCount: number }>(
 			"https://samurai.it-incubator.io/api/3.0/homework/test3",
@@ -90,6 +92,7 @@ const HW15 = () => {
 		setCount(+params.count || 4);
 		
 	}, []);
+console.log(techs);
 
 	const mappedTechs = techs.map((t) => (
 		<div key={t.id} className={s.row}>

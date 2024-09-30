@@ -19,9 +19,9 @@ export const pureChange = (sort: string, down: string, up: string) => {
 	// пишет студент, sort: (click) => down (click) => up (click) => '' (click) => down ...
 	count++;
 	return count === 1
-		? up
-		: count === 2
 		? down
+		: count === 2
+		? up
 		: count === 0
 		? ""
 		: count === 3
